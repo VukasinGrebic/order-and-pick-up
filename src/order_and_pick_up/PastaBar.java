@@ -19,8 +19,9 @@ public class PastaBar {
 		System.out.println("Please order your pasta");
 
 		String ingredientName = " ";
+		String phoneNumber = " ";
 
-		int price = 0;
+		double price = 0;
 
 		while (!ingredientName.equals("ORDER")) {
 
@@ -30,8 +31,13 @@ public class PastaBar {
 
 			ingredientName = ingredientName1;
 			ingredientName = ingredientName.toUpperCase();
-			
+
 			if (ingredientName.equals("ORDER")) {
+				System.out.print("Enter your phone number: ");
+				phoneNumber = s.next();
+				if (isRegularCustomer(phoneNumbers, phoneNumber)) {
+					price = 0.9 * price;
+				}
 				System.out.print("Your order is ");
 			} else {
 				int id = findIngredient(ingredients, ingredientName);
@@ -55,5 +61,12 @@ public class PastaBar {
 		}
 
 		return ingredientNumber;
+	}
+
+	public static boolean isRegularCustomer(String[] phoneNumbers, String phoneNumber) {
+		for (int i = 0; i < phoneNumbers.length; i++) {
+			phoneNumber.equals(phoneNumbers[i]);
+		}
+		return true;
 	}
 }
