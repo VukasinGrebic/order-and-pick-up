@@ -16,7 +16,7 @@ public class PastaBar {
 
 		int[] prices = { 50, 60, 120, 120, 140, 100, 100, 100, 80, 50, 80, 80, 80, 50, 50, 20 };
 
-		System.out.println("Please order your pasta");
+		System.out.println("Please choose your pasta ingredients: ");
 
 		String ingredientName = " ";
 		String phoneNumber = " ";
@@ -32,14 +32,17 @@ public class PastaBar {
 
 			ingredientName = ingredientName1;
 			ingredientName = ingredientName.toUpperCase();
+			int id = findIngredient(ingredients, ingredientName);
+
+			
 
 			if (ingredientName.equals("ORDER")) {
-				System.out.println("Do you want to take out your food? Y/N");
-				
+				System.out.println("Do you want to take out your food? (Y/N): ");
+
 				takeOut = s.next();
 				takeOut = takeOut.toUpperCase();
-				
-				if (isTakeOut (takeOut)) {
+
+				if (isTakeOut(takeOut)) {
 					price = price + prices[15];
 				}
 
@@ -52,8 +55,10 @@ public class PastaBar {
 
 				System.out.print("Your order is ");
 
+			} else if (!ingredientName.equals(ingredients[id])){
+				System.out.println("Enter valid ingredient");
+				
 			} else {
-				int id = findIngredient(ingredients, ingredientName);
 				price = price + prices[id];
 			}
 
@@ -84,6 +89,7 @@ public class PastaBar {
 			}
 
 		}
+
 		return regularCustomer;
 	}
 
