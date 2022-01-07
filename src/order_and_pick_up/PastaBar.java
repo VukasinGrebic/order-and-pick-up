@@ -34,14 +34,21 @@ public class PastaBar {
 			ingredientName = ingredientName.toUpperCase();
 
 			if (ingredientName.equals("ORDER")) {
-
+				System.out.println("Do you want to take out your food? Y/N");
+				
+				takeOut = s.next();
+				takeOut = takeOut.toUpperCase();
+				
+				if (isTakeOut (takeOut)) {
+					price = price + prices[15];
+				}
 
 				System.out.print("Enter your phone number: ");
 				phoneNumber = s.next();
 
 				if (isRegularCustomer(phoneNumbers, phoneNumber)) {
 					price = 0.9 * price;
-				} 
+				}
 
 				System.out.print("Your order is ");
 
@@ -75,10 +82,12 @@ public class PastaBar {
 			if (phoneNumber.equals(phoneNumbers[i])) {
 				regularCustomer = true;
 			}
-			
+
 		}
 		return regularCustomer;
 	}
 
-
+	public static boolean isTakeOut(String takeOut) {
+		return takeOut.equals("Y");
+	}
 }
