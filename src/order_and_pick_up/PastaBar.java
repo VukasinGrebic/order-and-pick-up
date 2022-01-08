@@ -32,6 +32,7 @@ public class PastaBar {
 
 			ingredientName = ingredientName1;
 			ingredientName = ingredientName.toUpperCase();
+			ingredientName = ingredientName.trim();
 			int id = findIngredient(ingredients, ingredientName);
 
 			if (ingredientName.equals("ORDER")) {
@@ -39,6 +40,7 @@ public class PastaBar {
 
 				takeOut = s.next();
 				takeOut = takeOut.toUpperCase();
+				takeOut = takeOut.trim();
 
 				if (isTakeOut(takeOut)) {
 					price = price + prices[15];
